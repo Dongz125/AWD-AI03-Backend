@@ -18,6 +18,10 @@ app.use(
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+//health check
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok', message: 'Server is healthy ✅' })
+})
 // routes
 app.use('/', router)
 
